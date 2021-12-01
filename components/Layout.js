@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Navbar, Nav } from "react-bootstrap";
-import Link from "next/link";
+import Link from "./CustomLink";
 
 import CustomHead from "./head";
 import actions from "../redux/actions";

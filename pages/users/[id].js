@@ -1,6 +1,7 @@
 import { Card, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import axios from "axios";
+import connectInitialProps from 'connect-initial-props';
 
 import actions from "../../redux/actions";
 
@@ -34,9 +35,18 @@ function UserView(props) {
   );
 }
 
-export async function getServerSideProps(ctx) {
+// UserView.getInitialProps = async (ctx) => {
+//   const { store, query, res } = ctx;
 
+//   console.log("[GET INITIAL PROPS]", store);
+
+//   return { userData: { data: {} } };
+// };
+
+export async function getServerSideProps(ctx) {
   const { params } = ctx;
+
+  console.log("[GET SERVER SIDE PROPS]", ctx.params);
 
   let res = await axios.get(`https://reqres.in/api/users/${params.id}`);
 
